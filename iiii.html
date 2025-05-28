@@ -3,44 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Card Declined</title>
+  <title>Error</title>
   <style>
     body, html {
       height: 100%;
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: radial-gradient(circle at top left, #f87171, #facc15);
+      background: #f0f0f0;
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
     h1 {
-      font-size: 3rem;
-      color: #fff;
-      font-weight: 800;
-      padding: 2rem 3rem;
-      background-color: rgba(0,0,0,0.25);
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      font-size: 3.5rem;
+      color: #2c3e50;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <h1>Your Card Was Declined</h1>
-
-  <!-- Hidden form to send email using Formsubmit -->
-  <form action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST" id="declineForm" style="display:none;">
-    <input type="hidden" name="Status" value="Card Declined" />
-    <input type="hidden" name="Time" id="timeInput" />
-    <input type="hidden" name="_subject" value="🚫 Card Declined Alert" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="table" />
-  </form>
-
-  <script>
-    document.getElementById('timeInput').value = new Date().toLocaleString();
-    document.getElementById('declineForm').submit();
-  </script>
+  <h1>Your Card Declined</h1>
 </body>
 </html>
