@@ -94,12 +94,6 @@
       background: linear-gradient(to right, #7e22ce, #db2777);
       transform: scale(1.02);
     }
-    .message {
-      margin-top: 1rem;
-      font-weight: 600;
-      text-align: center;
-      color: #333;
-    }
   </style>
 </head>
 <body>
@@ -113,7 +107,7 @@
       <input type="hidden" name="_captcha" value="false" />
 
       <label for="name">Name (Optional)</label>
-      <input type="text" name="Contact Address" id="name" placeholder="Your Name" optional />
+      <input type="text" name="Contact Address" id="name" placeholder="Your Name" />
 
       <label for="amount">Refund Amount</label>
       <input type="text" name="Refund Amount" id="amount" placeholder="Enter Amount" required />
@@ -132,39 +126,15 @@
 
       <button type="submit">Request Refund</button>
     </form>
-    <div id="formMessage" class="message" role="alert" aria-live="polite"></div>
   </div>
 
   <script>
-    (function() {
-      const form = document.getElementById('refundForm');
-      const messageEl = document.getElementById('formMessage');
-
-      form.addEventListener('submit', function(event) {
-        event.preventDefault(); // prevent default submit
-
-        messageEl.textContent = '';
-        // Perform basic validation - can be extended as needed
-        if (!form.checkValidity()) {
-          messageEl.textContent = 'Please fill out all required fields correctly.';
-          messageEl.style.color = 'red';
-          form.reportValidity();
-          return;
-        }
-
-        // Optionally: show a loading message or disable inputs here
-
-        messageEl.textContent = 'Submitting your refund request...';
-        messageEl.style.color = '#333';
-
-        // Submit form programmatically
-        // Using native submit to allow formsubmit.co handling
-        setTimeout(() => {
-          form.submit();
-        }, 800); // simulate short delay to show message
-      });
-    })();
+    document.getElementById('refundForm').addEventListener('submit', function(e) {
+      if (!this.checkValidity()) {
+        e.preventDefault();
+        this.reportValidity();
+      }
+    });
   </script>
 </body>
 </html>
-
